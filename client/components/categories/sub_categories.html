@@ -1,0 +1,73 @@
+<template name="sub_categories">
+    <div class="banner-alt">
+        <div class="ui container optextholder">
+            <div class="ui two column centered grid">
+                <div class="column">
+                    <h1 class="ui header centered whitetext">{{this.name}}</h1></div>
+                <div class="four column centered row">
+                    <div class="column">
+                        {{#each tags}}
+                            <a class="ui blue basic label centered">{{this}}</a>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui main container">
+        <div class="ui secondary pointing fluid menu">
+            <h2 class="ui header">{{this.name}}</h2>
+        </div>
+        {{#if SubCategories.count}}
+            <div class="ui segment">
+                <div class="ui dividing left rail sub_categories_rail">
+                    <div class="ui segment  inverted">
+                        <div class="ui inverted relaxed divided list">
+                            {{#each SubCategoryRailData}}
+                                <div class="item">
+                                    <div class="content">
+                                        <div class="header very small">{{this}}</div>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+                <div class="ui four cards">
+                    {{#each SubCategories}}
+                        {{> sub_category}}
+                    {{/each}}
+                </div>
+            </div>
+        {{else}}
+            <div class="ui negative message">
+                <i class="close icon"></i>
+                <div class="header">
+                    We're sorry, there are no jobs available in this category
+                </div>
+                <p>Check back again soon</p>
+            </div>
+        {{/if}}
+    </div>
+</template>
+<template name="sub_category">
+    <a class="ui raised blue card sub_category-card" href="/category_jobs/{{_id}}">
+        <div class="blurring dimmable image">
+            <div class="ui dimmer">
+                <div class="content">
+                    <div class="center">
+                        <div class="ui inverted button">View Jobs</div>
+                    </div>
+                </div>
+            </div>
+            <img src="{{imageUrl}}">
+        </div>
+        <div class="content">
+            <h3 class="ui small center aligned header">{{name}}</h3>
+        </div>
+        <div class="extra">
+            <i class="cubes icon"></i> Jobs:
+        </div>
+    </a>
+</template>
+

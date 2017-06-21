@@ -1,0 +1,10 @@
+<template name="admin_jobs">
+    {{> reactiveTable collection=Jobs fields=fields settings=JobsTableSettings}}
+</template>
+
+<template name="admin_job_table_view_cell">
+   <a class="ui icon button" href="/admin/job/{{this._id}}"><i class="edit icon"></i></a>
+   {{#quickRemoveButton collection=JobsCollection onError=deleteError onSuccess=deleteSuccess beforeRemove=deleteBeforeRemove _id=this._id class="ui icon red button" }}
+   <i class="remove icon"></i>
+   {{/quickRemoveButton}}   
+</template>

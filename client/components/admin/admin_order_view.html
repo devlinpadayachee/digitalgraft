@@ -1,0 +1,63 @@
+<template name="admin_order_view">
+	
+    <div class="ui two column divided relaxed grid">
+    	<div class="row">
+		    <div class="column">
+		     	<div class="ui breadcrumb segment">
+				  <a class="section" href="/admin/orders">Orders</a>
+				  <div class="divider"> / </div>
+				  <div class="active section">Order Details</div>
+				</div>
+		    </div>
+	  	</div>
+        <div class="stretched row">
+            <div class="column">
+                <div class="ui">
+                    <div class="ui relaxed divided list">
+                        <div class="item">
+                            <div class="header">Category Name</div>
+                            {{this.name}}
+                        </div>
+                        <div class="item">
+                            <div class="header">Tags</div>
+                            {{this.tags}}
+                        </div>
+                        <div class="item">
+                            <div class="header">Featured</div>
+                            {{isFeatured}}
+                        </div>
+                        <div class="item">
+                            <div class="header">Image Url</div>
+                            {{this.imageUrl}}
+                        </div>
+                        <div class="item">
+                            <div class="header">Owner</div>
+                            {{ idtoname this.owner}}
+                        </div>
+                        <div class="item">
+                            <div class="header">Created</div>
+                            {{this.createdAt}}
+                        </div>
+                        <div class="item">
+                            <div class="header">Last updated</div>
+                            {{this.updatedAt}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui">
+         <!--            {{#autoForm collection=CategoriesCollection id="category_edit_form" doc=this type="update" autosave=true}}
+                            {{> afQuickField name='name'}}
+                            {{#unless featured}}
+                                {{> afQuickField name='parentCategory' options = ParentCatagoryOptions }}
+                            {{/unless}}
+                            {{> afQuickField name='featured'}}
+                            {{> afQuickField name='imageUrl'}} {{> afQuickField name='imageUrlLarge'}} {{> afQuickField name='tags'}}
+                    {{/autoForm}} -->
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+

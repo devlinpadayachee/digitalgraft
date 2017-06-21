@@ -1,0 +1,8 @@
+<template name="admin_orders">
+    {{> reactiveTable collection=Orders fields=fields settings=OrdersTableSettings}}
+</template>
+
+<template name="admin_order_table_view_cell">
+   <a class="ui icon button" href="/admin/order/{{this._id}}"><i class="edit icon"></i></a>
+</template>
+

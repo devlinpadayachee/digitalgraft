@@ -1,0 +1,9 @@
+<template name="seller_orders">
+    <div class="ui segment">
+        {{> reactiveTable collection=Orders fields=fields settings=OrdersTableSettings}}
+    </div>
+</template>
+<template name="seller_order_table_view_cell">
+    <a class="ui violet icon button" href="/seller/order/{{this._id}}"><i class="edit icon"></i></a>
+</template>
+

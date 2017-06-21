@@ -1,0 +1,41 @@
+<template name="seller">
+        <div class="ui grid container">
+            <div class="three wide column">
+                {{>seller_menu}}
+            </div>
+            <div class="thirteen wide fluid column">
+                {{>seller_content}}
+            </div>
+        </div>
+</template>
+
+<template name="seller_menu">
+    <div class="ui vertical menu ">
+        <a class="item" href="/seller">
+            <i class="grid layout icon"></i>Dashboard
+        </a>
+        <a class="item" href="/seller/profile/update">
+            <i class="user icon"></i>Update your Profile
+        </a>
+        <div class="ui dropdown item">
+            Your Jobs
+            <i class="dropdown icon"></i>
+            <div class="ui menu">
+                <a class="item" href="/seller/jobs"><i class="edit icon"></i>Manage your Jobs</a>
+                <a class="item" href="/seller/job/create"><i class="add circle icon"></i>Create a Job</a>
+            </div>
+        </div>
+        <div class="ui dropdown item">
+            Your Orders
+            <i class="dropdown icon"></i>
+            <div class="ui menu">
+                <a class="item" href="/seller/orders"><i class="edit icon"></i>Manage your Orders</a>
+            </div>
+        </div>
+        
+    </div>
+</template>
+<template name="seller_content">
+        {{> yield "sellercontentyield"}}
+</template>
+

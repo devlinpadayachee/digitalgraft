@@ -1,0 +1,314 @@
+<template name="order_view">
+    <div class="ui main container">
+        <div class="ui center aligned inverted top attached segment">
+            <div class="ui stackable equal width grid">
+                <div class="column whitetext">
+                    <img src="{{Buyer.auxdata.picture}}" alt="profile image" class="ui centered small bordered circular image" onError="this.onerror=null;this.src='/images/DigitalGraft_logo_01_blackbackground.jpg';">
+                    <h2 class="ui header capitalize whitetext">
+                    {{Buyer.auxdata.name}}
+                    <div class="ui orange sub header">Buyer</div>
+                    </h2>
+                </div>
+                <div class="column whitetext vertical-align-middle capitalize header">I will {{this.jobDetails.title}}</div>
+                <div class="column whitetext">
+                    <img src="{{Seller.auxdata.picture}}" alt="profile image" class="ui centered small bordered circular image" onError="this.onerror=null;this.src='/images/DigitalGraft_logo_01_blackbackground.jpg';">
+                    <h2 class="ui header capitalize whitetext">
+                    {{Seller.auxdata.name}}
+                    <div class="ui violet sub header">Seller</div>
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="ui bottom attached segment">
+            <div class="ui internally celled stackable grid">
+                <div class="row">
+                    <div class="sixteen wide column">
+                        <div class="ui tablet stackable five steps">
+                            <div class="{{ProgressCalculator 'in progress'}} step">
+                                <i class="plane {{StatusColourProgress 'in progress'}} icon"></i>
+                                <div class="content">
+                                    <div class="title">Job Started</div>
+                                    <div class="description">Seller is completing this Job</div>
+                                </div>
+                            </div>
+                            <div class="{{ProgressCalculator 'delivered'}} step">
+                                <i class="cloud download {{StatusColourProgress 'delivered'}} icon"></i>
+                                <div class="content">
+                                    <div class="title">Job Delivered</div>
+                                    <div class="description">Verify order details</div>
+                                </div>
+                            </div>
+                            <div class="{{ProgressCalculator 'revision'}} step">
+                                <i class="refresh {{StatusColourProgress 'revision'}} icon"></i>
+                                <div class="content">
+                                    <div class="title">Requires Revision</div>
+                                    <div class="description">Buyer requested revision</div>
+                                </div>
+                            </div>
+                            <div class="{{ProgressCalculator 'review'}} step">
+                                <i class="star {{StatusColourProgress 'review'}} icon"></i>
+                                <div class="content">
+                                    <div class="title">Job Review</div>
+                                    <div class="description">Waiting on Job Review</div>
+                                </div>
+                            </div>
+                            <div class="{{ProgressCalculator 'completed'}} step">
+                                <i class="check {{StatusColourProgress 'completed'}} icon"></i>
+                                <div class="content">
+                                    <div class="title">Job Completed </div>
+                                    <div class="description">Job has been completed</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="eight wide column">
+                        <div class="ui secondary pointing fluid menu">
+                            <h2 class="ui header">Order Details</h2>
+                        </div>
+                        <div class="ui green labeled submit icon button markasinprogress" name="in progress">
+                            <i class="icon plane download"></i> Mark as In Progress
+                        </div>
+                        {{#if $eq this.status 'in progress'}}
+                            <div class="ui info large violet message">
+                                <div class="header">
+                                    Job Delivered
+                                </div>
+                                <p>Once you have completed your work and are satisfied that you have delivered the appropriate solution, click below to mark the job as delivered, check back here once the Buyer has verified that they are satisfied.<strong> Make sure that you share any necessary files with your buyer.</strong></p>
+                                <button class="ui violet labeled  icon  markasdeliveredbutton button" name="delivered">
+                                    <i class="icon cloud download"></i> Mark as Delivered
+                                </button>
+                            </div>
+                        {{/if}}
+                        {{#if $eq this.status 'delivered'}}
+                            <div class="ui info large green message">
+                                <div class="header">
+                                    Accept Solution or Request Revision
+                                </div>
+                                <p>Awesome, {{Seller.auxdata.name}} has delivered your Job, click the Accept Work Done button if you are satisfied with the work or the Request Revision button if you would like {{Seller.auxdata.name}} to revise the work.</p>
+                                <div class="ui buttons">
+                                    <button class="ui green labeled  icon button markasacceptedbutton" name="accepted">
+                                        <i class="icon checkmark left"></i> Accept Work Done
+                                    </button>
+                                    <div class="or"></div>
+                                    <button class="ui orange right labeled icon button markasrevisionbutton" name="revision">
+                                        <i class="icon refresh download"></i> Request Revision
+                                    </button>
+                                </div>
+                            </div>
+                        {{/if}}
+                        {{#if $eq this.status 'revision'}}
+                            <div class="ui info large violet message">
+                                <div class="header">
+                                    Job Delivered
+                                </div>
+                                <p>Once you have completed your work and are satisfied that you have delivered the appropriate solution, click below to mark the job as delivered, check back here once the Buyer has verified that they are satisfied.<strong> Make sure that you share any necessary files with your buyer.</strong></p>
+                                <button class="ui violet labeled  icon  markasdeliveredbutton button" name="delivered">
+                                    <i class="icon cloud download"></i> Mark as Delivered
+                                </button>
+                            </div>
+                        {{/if}}
+                        {{#if $eq this.status 'review'}}
+                            <div class="ui info large yellow message">
+                                <div class="header">
+                                    Review this Job
+                                </div>
+                                <p>Congratulations, your Job has been completed. Please rate and review the Seller. You can return to this page and ammend the details after you have submitted the review.</p>
+                                <form class="ui form review_details">
+                                    <div class="ui error message"></div>
+                                    <div class="field">
+                                        <label>Rating</label>
+                                        <div class="ui red massive star rating starrating"></div>
+                                        <input type="hidden" name="rating" id="rating" value="{{CurrentStarRating}}" min="1" max="5">
+                                    </div>
+                                    <div class="field">
+                                        <label>Review</label>
+                                        <textarea rows="5" name="review" id="review" length="200"></textarea>
+                                    </div>
+                                    <button class="ui yellow labeled  icon  button" name="completed">
+                                        <i class="icon star download"></i> Submit Review
+                                    </button>
+                                </form>
+                            </div>
+                        {{/if}}
+                        <div class="ui divided list">
+                            <div class="item">
+                                <div class="header">Status</div>
+                                <span class="ui header capitalize {{StatusColour}}">
+                                    {{this.status}}
+                                    {{#if $eq this.status 'completed'}} {{ formatteddate this.completedAt}} {{/if}}
+                                </span>
+                            </div>
+                            <div class="item">
+                                <div class="header">Expected delivery date</div>
+                                {{ formatteddate this.expectedAt}}
+                            </div>
+                            <div class="item">
+                                <div class="header">Job was started </div>
+                                {{ formatteddate this.commencedAt}}
+                            </div>
+                            <div class="item">
+                                <div class="header">Purchased price</div>
+                                R{{ this.jobDetails.price}}
+                            </div>
+                            <div class="item">
+                                <div class="header">Number of days to complete</div>
+                                {{ this.jobDetails.maxDays}}
+                            </div>
+                            <div class="item">
+                                <div class="header">Number of allowed Revisions</div>
+                                {{ this.jobDetails.allowedRevisions}}
+                            </div>
+                            <div class="item">
+                                <div class="header">Number of Revisions</div>
+                                {{ this.revisionTimes}}
+                            </div>
+                            <div class="item">
+                                <div class="header">Parent Category</div>
+                                {{ categoryidtoname this.jobDetails.parentCategory}}
+                            </div>
+                            <div class="item">
+                                <div class="header">Sub-Category</div>
+                                {{ categoryidtoname this.jobDetails.subCategory}}
+                            </div>
+                            {{#if $eq this.status 'completed'}}
+                            <div class="item">
+                                <div class="header">Rating</div>
+                                <div class="ui red sub header">
+                                        <div class="ui red tiny star rating displayrating"></div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="header">Review</div>
+                                {{ this.review}}
+                            </div>
+                            {{/if}}
+                            <div class="item">
+                                <div class="header">Uploaded Information <a class="jobinstructionsmodallink"> (Information required by seller to start order)</a></div>
+                                {{#if this.information}} {{ this.information }} {{else}}None {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="eight wide column">
+                        <div class="ui secondary pointing fluid menu">
+                            <h2 class="ui header">Messages</h2>
+                        </div>
+                        <div class="ui attached message">
+                            <div class="header">
+                                <form class="ui reply form">
+                                    <div class="field">
+                                        <label>Message</label>
+                                        <textarea id="message" name="message" rows="2"></textarea>
+                                    </div>
+                                    <div class="ui blue labeled submit icon button" disabled= {{isDeactivated}} name="sendmessage">
+                                        <i class="icon edit"></i> Send Message
+                                    </div>
+                                </form>
+                            </div>
+                            <p>Fill out the form below to sign-up for a new account</p>
+                        </div>
+                        <form class="ui form attached fluid segment messagescroller">
+                            <div class="ui comments">
+                                {{#each Messages}}
+                                    <div class="comment">
+                                        <a class="avatar">
+                                            <img src="{{idtopicture this.userId}}">
+                                        </a>
+                                        <div class="content">
+                                            <a class="author">{{idtoname this.userId}}</a>
+                                            <div class="metadata">
+                                                <div class="date">{{formatteddatenice this.date}}</div>
+                                            </div>
+                                            <div class="text">
+                                                {{this.body}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {{/each}}
+                            </div>
+                        </form>
+                        <div class="ui bottom attached blue message">
+                            <i class="icon help"></i> Already signed up? <a href="#">Login here</a> instead.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="sixteen wide column">
+                        <div class="ui secondary pointing fluid menu">
+                            <h2 class="ui header">Share Files</h2>
+                        </div>
+                        {{> uploadForm}} {{> uploadedFiles}}
+                    </div>
+                </div>
+                {{#if $eq this.status 'completed'}}
+                    <div class="row">
+                        <div class="sixteen wide column">
+                            <div class="ui secondary pointing fluid menu">
+                                <h2 class="ui header">Update Rating and Review</h2>
+                            </div>
+                            <form class="ui form update_review_details">
+                                <div class="ui error message"></div>
+                                <div class="field">
+                                    <label>Rating</label>
+                                    <div class="ui red massive star rating editrating"></div>
+                                    <input type="hidden" name="editratinginput" id="editratinginput" value="{{EditStarRating}}" min="1" max="5">
+                                </div>
+                                <div class="field">
+                                    <label>Review</label>
+                                    <textarea rows="5" name="editreview" id="editreview" length="200" value="{{this.review}}"></textarea>
+                                </div>
+                                <button class="ui blue labeled submit icon button" name="updatereview">
+                                    <i class="icon star download"></i> Update Review
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    {{> xform}}
+</template>
+<template name="xform">
+    <div class="ui basic modal">
+        <div class="ui icon header">
+            <i class="info icon"></i> Required Information
+        </div>
+        <div class="content">
+            <p>The following information is required by the Seller of the Job to complete the work you have requested. Please upload this information on the previous screen if it is not already present.</p>
+            <p>
+                <div class="ui inverted section ">
+                    {{{this.jobDetails.instructions}}}
+                </div>
+            </p>
+        </div>
+        <div class="actions">
+            <div class="ui green ok inverted button">
+                <i class="checkmark icon"></i> Yes
+            </div>
+        </div>
+    </div>
+</template>
+<template name="uploadForm">
+    {{#with currentUpload}} Uploading <b>{{file.name}}</b>:
+        <span id="progress">{{progress.get}}%</span>
+        {{else}}
+            <div class="ui input">
+                <input class="ui primary button" id="fileInput" type="file" />
+            </div>
+            <p><small>Upload file in <code>jpeg</code> or <code>png</code> format, with size less or equal to 10MB</small></p>
+    {{/with}}
+</template>
+<template name="uploadedFiles">
+    {{#if uploadedFiles.count}}
+        <div class="ui divided list">
+            {{#each file in uploadedFiles.each}}
+                <a href="{{file.link}}?download=true" download="{{file.name}}" target="_blank" class="item">{{@index}}) {{file.name}}</a>
+            {{/each}}
+        </div>
+    {{else}}
+        <div>No files uploaded, yet</div>
+    {{/if}}
+</template>
+

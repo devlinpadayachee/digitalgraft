@@ -1,0 +1,26 @@
+<template name="seller_profile_update">
+    <div class="ui segment">
+        <div class="ui secondary violet menu">
+            <a href="/profile/{{this._id}}" class="right active item">
+            View your public profile page
+        </a>
+        </div>
+        <form class="ui form users_details">
+            <div class="ui error message"></div>
+            <div class="field">
+                <label>User bio</label>
+                <textarea rows="5" name="bio" id="bio" value="{{this.auxdata.bio}}" length="500"></textarea>
+            </div>
+            <div class="field">
+                <label>Years of experience</label>
+                <input type="number" name="yearsexperience" id="yearsexperience" value="{{this.auxdata.yearsexperience}}">
+            </div>
+            <div class="field">
+                <label>Tag line</label>
+                <input type="text" name="tagline" id="tagline" value="{{this.auxdata.tagline}}" length="40">
+            </div>
+            <button class="ui green button" type="submit">Update Details</button>
+        </form>
+    </div>
+</template>
+

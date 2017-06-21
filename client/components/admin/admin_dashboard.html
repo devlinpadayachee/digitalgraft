@@ -1,0 +1,65 @@
+<template name="admin_dashboard">
+    <div class="ui four cards centered statistics">
+        <div class="red card">
+            <div class="content">
+               <h2 class="ui center aligned icon header">
+                    <i class="circular users icon"></i>                    
+               </h2>
+               <div class="violet statistic">
+                      <div class="value">
+                       {{userCount}}
+                      </div>
+                      <div class="label">
+                        Users
+                      </div>
+               </div>
+            </div>
+        </div>
+        <div class="red card">
+            <div class="content">
+                <h2 class="ui center aligned icon header">
+                    <i class="circular sitemap icon"></i>                    
+               </h2>
+               <div class="violet statistic">
+                      <div class="value">
+                       {{categoriesCount}}
+                      </div>
+                      <div class="label">
+                        Categories
+                      </div>
+               </div>
+            </div>
+        </div>
+        <div class="red card">
+            <div class="content">
+                <h2 class="ui center aligned icon header">
+                    <i class="circular cubes icon"></i>                    
+                </h2>
+                <div class="violet statistic">
+                      <div class="value">
+                       {{jobsCount}}
+                      </div>
+                      <div class="label">
+                        Jobs
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="red card">
+            <div class="content">
+                <h2 class="ui center aligned icon header">
+                    <i class="circular shopping bag icon"></i>                    
+                </h2>
+                <div class="violet statistic">
+                      <div class="value">
+                       {{ordersCount}}
+                      </div>
+                      <div class="label">
+                        Orders
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+

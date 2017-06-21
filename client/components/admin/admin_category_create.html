@@ -1,0 +1,27 @@
+<template name="admin_category_create">
+
+    {{#autoForm collection=CategoriesCollection id="category_create_form" type="insert" }}
+        {{> afQuickField name='name'}} {{> afQuickField name='imageUrl'}} {{> afQuickField name='imageUrlLarge'}} {{> afQuickField name='tags'}}
+        <br>
+        <button class="ui positive submit button" type="submit">Create Category</button>
+    {{/autoForm}}
+    <div class="ui horizontal divider">
+    Or
+  	</div>
+  	<div class="ui secondary segment">
+	  <p>
+	  	{{{DefaultCategoryData}}}
+	  </p>
+	</div>
+    <form class="ui form bulk_load_categories">
+    	<div class="ui error message"></div>
+        <div class="field">
+            <label>Bulk CSV Loader</label>
+            <textarea rows="5" name="csvloader" id="csvloader"></textarea>
+        </div>
+        <button class="ui positive submit button" type="submit">Bulk Load Categories</button>
+    </form>
+
+    
+</template>
+

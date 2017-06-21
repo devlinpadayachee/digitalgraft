@@ -1,0 +1,11 @@
+<template name="admin_categories">
+    {{> reactiveTable collection=Categories fields=fields settings=CategoriesTableSettings}}
+</template>
+
+<template name="admin_category_table_view_cell">
+   <a class="ui icon button" href="/admin/category/{{this._id}}"><i class="edit icon"></i></a>
+   {{#quickRemoveButton collection=CategoriesCollection onError=deleteError onSuccess=deleteSuccess beforeRemove=deleteBeforeRemove _id=this._id class="ui icon red button" }}
+   <i class="remove icon"></i>
+   {{/quickRemoveButton}}   
+</template>
+

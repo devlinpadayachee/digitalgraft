@@ -1,0 +1,30 @@
+<template name="job_card">
+    <a class="ui raised blue card" href= "/job/{{_id}}">
+
+        <div class="blurring dimmable fluid image">
+            <a class="ui large violet right ribbon label">R{{price}}</a>
+            <div class="ui dimmer">
+                <div class="content">
+                    <div class="center">
+                        <div class="ui inverted button">View Job</div>
+                    </div>
+                </div>
+            </div>
+            <img class= "job-card-image" src="{{imageUrl}}">
+        </div>
+        <div class="content">
+            <div class="ui secondary pointing header">
+                <h2 class = "ui tiny header wordwrap">I will {{title}}</h2>
+            </div>
+        </div>
+        <div class="extra content">
+            <div class="meta">
+                <a>By {{ idtoname seller}}</a>
+            </div>
+        </div>
+        <div class="extra content">
+            <span class="ui right floated yellowtext">Created {{formatteddate createdAt}}</span>
+            <span class = "green"><i class="thumbs up icon green"></i>{{positiveLikes}}</span>
+        </div>
+    </a>
+</template>

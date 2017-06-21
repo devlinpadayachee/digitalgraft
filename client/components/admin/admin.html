@@ -1,0 +1,65 @@
+<template name="adminheader">
+    <div class="ui menu">
+        <a href="/" class="header">
+            <img class="admin-logo" src="/images/logo.png">
+        </a>
+        <div class="right item">
+            {{> loginButtons align="right"}}
+        </div>
+    </div>
+</template>
+
+<template name="admin">
+    <div class="ui grid horizontally padded">
+        <div class="two wide column">
+            {{>admin_menu}}
+        </div>
+        <div class="fourteen wide column">
+            {{>admin_content}}
+        </div>
+    </div>
+</template>
+
+<template name="admin_menu">
+    <div class="ui vertical menu ">
+        <a class="item" href="/admin">
+            <i class="grid layout icon"></i>Dashboard
+        </a>
+        <div class="ui dropdown item">
+            General Settings
+            <i class="dropdown icon"></i>
+            <div class="menu">
+                <a class="item" href="/admin/settings/language"><i class="globe icon"></i>Language</a>
+            </div>
+        </div>
+        <div class="ui dropdown item">
+            Categories
+            <i class="dropdown icon"></i>
+            <div class="menu">
+                <a class="item" href="/admin/categories"><i class="edit icon"></i>Manage</a>
+                <a class="item" href="/admin/category/create"><i class="add circle icon"></i>Create Category</a>
+            </div>
+        </div>
+        <div class="ui dropdown item">
+            Jobs
+            <i class="dropdown icon"></i>
+            <div class="menu">
+                <a class="item" href="/admin/jobs"><i class="edit icon"></i>Manage</a>
+                <a class="item" href="/admin/job/create"><i class="add circle icon"></i>Create Job</a>
+            </div>
+        </div>
+        <div class="ui dropdown item">
+            Orders
+            <i class="dropdown icon"></i>
+            <div class="menu">
+                <a class="item" href="/admin/orders"><i class="edit icon"></i>Manage</a>
+                <a class="item" href="/admin/order/create"><i class="add circle icon"></i>Create Order</a>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="admin_content">
+    {{> yield "admincontentyield"}}
+</template>
+

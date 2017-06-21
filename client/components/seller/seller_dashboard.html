@@ -1,0 +1,67 @@
+<template name="seller_dashboard">
+    <div class="ui four cards statistics segment">
+                
+        <div class="red card">
+            <div class="content">
+                <h2 class="ui center aligned icon header">
+                    <i class="circular shopping bag icon"></i>                    
+                </h2>
+                <div class="violet statistic">
+                      <div class="value">
+                       {{AllOrders}}
+                      </div>
+                      <div class="label">
+                        All Orders
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="red card">
+            <div class="content">
+                <h2 class="ui center aligned icon header">
+                    <i class="circular sitemap icon"></i>                    
+               </h2>
+               <div class="violet statistic">
+                      <div class="value">
+                       {{ActiveOrders}}
+                      </div>
+                      <div class="label">
+                        Active Orders
+                      </div>
+               </div>
+            </div>
+        </div>
+        <div class="red card">
+            <div class="content">
+               <h2 class="ui center aligned icon header">
+                    <i class="circular check icon"></i>                    
+               </h2>
+               <div class="violet statistic">
+                      <div class="value">
+                       {{CompletedOrders}}
+                      </div>
+                      <div class="label">
+                        Completed Orders
+                      </div>
+               </div>
+            </div>
+        </div>
+        <div class="red card">
+            <div class="content">
+                <h2 class="ui center aligned icon header">
+                    <i class="circular cubes icon"></i>                    
+                </h2>
+                <div class="violet statistic">
+                      <div class="value">
+                       {{jobsCount}}
+                      </div>
+                      <div class="label">
+                        Jobs
+                      </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</template>
+

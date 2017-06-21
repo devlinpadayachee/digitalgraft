@@ -1,0 +1,9 @@
+<template name="seller_jobs">
+    <div class="ui segment">
+        {{> reactiveTable collection=Jobs fields=fields settings=JobsTableSettings}}
+    </div>
+</template>
+<template name="seller_job_table_view_cell">
+    <a class="ui violet icon button" href="/seller/job/{{this._id}}"><i class="edit icon"></i></a>
+</template>
+

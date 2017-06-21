@@ -1,0 +1,36 @@
+<template name="seller_job_view">
+    <div class="ui segment">
+            {{#autoForm collection=JobsCollection id="job_edit_form" doc=this type="update" }}
+                <div class="ui four column padded grid">
+                    <div class="row">
+                        <div class="two wide column vertical-align-middle">
+                            <h2 class="ui center aligned header blue text">I will</h2></div>
+                        <div class="ten wide column"> {{> afFieldInput name='title'}} </div>
+                        <div class="two wide column vertical-align-middle">
+                            <h2 class="ui center aligned header blue text">for R</h2></div>
+                        <div class="two wide column">{{> afFieldInput name='price'}}</div>
+                    </div>
+                </div>
+                {{#if afFieldIsInvalid name='title' }}
+                    {{afFieldMessage name='title'}}
+                {{/if}}
+                {{#if afFieldIsInvalid name='price' }}
+                    {{afFieldMessage name='price'}}
+                {{/if}}
+                <div class="ui horizontal divider">
+                   Complete the finer details
+                </div>
+                {{> afQuickField name='highlight'}} 
+                {{> afQuickField name='description'}} 
+                {{> afQuickField name='instructions'}} 
+                {{> afQuickField name='maxDays'}}
+                {{> afQuickField name='allowedRevisions' options = AllowedRevisionsOptions}} 
+                {{> afQuickField name='parentCategory' options = ParentCategoryOptions }} 
+                {{> afQuickField name='subCategory' options = SubCategoryOptions}} 
+                {{> afQuickField name='imageUrl'}} 
+                {{> afQuickField name='gallery'}}
+                <button type="submit" class="ui green button">Update Job</button>
+            {{/autoForm}}
+    </div>
+</template>
+

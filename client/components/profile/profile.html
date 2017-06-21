@@ -1,0 +1,71 @@
+<template name="profile">
+    <div class="ui main container">
+        <div class="ui center aligned inverted top attached segment">
+            <img src="{{this.auxdata.picture}}" alt="profile image" class="ui centered small bordered circular image" onError="this.onerror=null;this.src='/images/DigitalGraft_logo_01_blackbackground.jpg';">
+            
+            <h1 class="ui header capitalize">
+              {{this.auxdata.name}}
+              <div class="ui grey sub header">{{this.auxdata.tagline}}</div>
+               <div class="ui red sub header"><div class="ui red tiny star rating" data-rating="3" data-max-rating="5"></div></div>
+
+            </h1>
+        </div>
+        <div class="ui bottom attached segment">
+            <div class="ui internally celled stackable grid">
+                <div class="row">
+                    <div class="eight wide column">
+                        <div class="ui secondary pointing fluid menu">
+                            <h2 class="ui header">About</h2>
+                        </div>
+                        <p>{{this.auxdata.bio}}</p>
+                        <p>Joined DigitalGraft: {{ formatteddate this.createdAt}}</p>
+                    </div>
+                    <div class="eight wide column">
+                        <div class="ui secondary pointing fluid menu">
+                            <h2 class="ui header">Details</h2>
+                        </div>
+                        <div class="ui three mini statistics">
+                            <div class="ui mini blue statistic">
+                                <div class="value">
+                                    {{this.auxdata.yearsexperience}}
+                                </div>
+                                <div class="label">
+                                    Years<br>Experience
+                                </div>
+                            </div>
+                            <div class="ui mini blue statistic">
+                                <div class="value">
+                                  6
+                                </div>
+                                <div class="label">
+                                    Completed<br>Orders
+                                </div>
+                            </div>
+                            <div class="ui mini blue statistic">
+                                <div class="value">
+                                    5
+                                </div>
+                                <div class="label">
+                                    Active<br>Orders
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="sixteen wide column">
+                    <div class="ui secondary pointing fluid menu">
+                        <h2 class="ui header">Jobs</h2>
+                    </div>
+                    <div class="ui link four cards">
+                    {{#each Jobs}}
+                        {{> job_card}}
+                    {{/each}}
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+

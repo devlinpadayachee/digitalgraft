@@ -1,0 +1,18 @@
+<template name="admin_settings_language">
+    {{#unless CurrentLang}}
+              <label>Language</label>
+              <div class="ui selection dropdown select-language">
+                  <input type="hidden" name="language">
+                  <i class="dropdown icon"></i>
+                  <div class="default text">Language</div>
+                  <div class="menu">
+                    {{#each StaticText}}
+                      <div class="item" data-value="{{_id}}">{{name}}</div>
+                    {{/each}}
+                  </div>
+              </div>
+    {{else}}
+      {{> quickForm collection=StaticTextCollection id="statictext_edit_form" doc=CurrentLang type="update" omitFields="createdAt,updatedAt"}}
+    {{/unless}}
+</template>
+

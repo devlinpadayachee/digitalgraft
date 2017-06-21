@@ -1,0 +1,9 @@
+{
+  "public": {
+  	"LANGUAGE" : "English",
+    "CLOUDINARY_API_KEY": "973441144156213",
+    "CLOUDINARY_CLOUD_NAME": "digitalgraft-co-za"
+  },
+
+  "CLOUDINARY_API_SECRET": "boGVhJc-QrpLBzrDT744P73INo8"
+}
