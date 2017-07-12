@@ -47,14 +47,7 @@
             </div>
             <div class="column">
                 <div class="ui">
-         <!--            {{#autoForm collection=CategoriesCollection id="category_edit_form" doc=this type="update" autosave=true}}
-                            {{> afQuickField name='name'}}
-                            {{#unless featured}}
-                                {{> afQuickField name='parentCategory' options = ParentCatagoryOptions }}
-                            {{/unless}}
-                            {{> afQuickField name='featured'}}
-                            {{> afQuickField name='imageUrl'}} {{> afQuickField name='imageUrlLarge'}} {{> afQuickField name='tags'}}
-                    {{/autoForm}} -->
+                    {{> quickForm collection=OrdersCollection doc=this id="order_edit_form" type="update"}}
                 </div>
             </div>
         </div>

@@ -16,6 +16,20 @@ Schemas.Job = new SimpleSchema({
         },
         max: 80
     },
+    title_sort: {
+        type: String,
+        optional: true,
+        autoValue: function() {
+            var title = this.field("title");
+            console.log(title);
+            console.log(title.isSet);
+            if (title.isSet) {
+                return title.value.toLowerCase();
+            } else {
+                this.unset(); 
+            }
+        }
+    },
     price: {
         type: Number,
         label: "Job price",
@@ -84,7 +98,7 @@ Schemas.Job = new SimpleSchema({
     maxDays: {
         type: Number,
         label: "Maximum number of days taken to complete this job",
-        min: 0
+        min: 1
     },
     createdAt: {
         type: Date,

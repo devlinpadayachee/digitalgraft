@@ -23,6 +23,14 @@ Template.category_jobs.onCreated(function() {
         this.subscribe('jobsbylimit', limit, sort)
     })
 
+    $('.cards .image').transition({
+		animation: 'pulse',
+		reverse: true,
+		interval: 100
+	}).transition('horizontal flip in');
+// 
+
+
 
 });
 
@@ -62,6 +70,10 @@ Template.category_jobs.onRendered(function() {
 		interval: 100
 	}).transition('horizontal flip in');
 
+	$('.ui .item').on('click', function() {
+		$('.ui .item').removeClass('active');
+		$(this).addClass('active');
+	});
 
 
 });
@@ -71,14 +83,13 @@ Template.category_jobs.onRendered(function() {
 Template.category_jobs.helpers({
 
 	Jobs() {
-
-		return Jobs.find({
-			subCategory: this._id
-		}, {
-			sort: {
-				createdAt: -1
-			}
-		});
+		const instance = Template.instance();
+	    let limit   = instance.state.get('jobsLimit'),
+        field   = instance.state.get('jobsSortField'),
+        order   = instance.state.get('jobsSortOrder'),
+        sort    = {[field]:order}
+        console.log(Jobs.find({subCategory: this._id}, {sort: sort}).fetch());
+		return Jobs.find({subCategory: this._id}, {sort: sort});
 	}
 
 
@@ -88,8 +99,30 @@ Template.category_jobs.helpers({
 Template.category_jobs.events({
 
 	'scroll .jobssection': function(event) {
-
 		console.log(this)
+		event.preventDefault();
+	},
+	'click .sortbytitle': function(event,instance) {
+		instance.state.set('jobsSortField','title_sort');
+		instance.state.set('jobsSortOrder', 1);
+		event.preventDefault();
+	},
+	'click .sortbypopular': function(event,instance) {
+		instance.state.set('jobsSortField', 'positiveLikes');
+		event.preventDefault();
+	},
+	'click .sortbypurchasedtimes': function(event,instance) {
+		instance.state.set('jobsSortField', 'purchasedTimes');
+		event.preventDefault();
+	},
+	'click .sortbynewest': function(event,instance) {
+		instance.state.set('jobsSortField', 'createdAt');
+		instance.state.set('jobsSortOrder', -1);
+		event.preventDefault();
+	},
+	'click .sortbyoldest': function(event,instance) {
+		instance.state.set('jobsSortField', 'createdAt');
+		instance.state.set('jobsSortOrder', 1);
 		event.preventDefault();
 	}
 

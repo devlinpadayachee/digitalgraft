@@ -1,32 +1,8 @@
 <template name="job_view">
     <div class="ui main container">
         <div class="ui secondary pointing fluid menu">
-            <h2 class="ui blue header capitalize">I will {{this.title}}</h2>
+            <h2 class="ui blue header uppercase wordwrap">I will {{this.title}}</h2>
         </div>
-            <div class="ui right dividing rail">
-                <div class="ui cards">
-                    <div class=" card">
-                        <div class="content" style="text-transform: capitalize;">
-                            <img class="right floated mini ui image" src="{{Seller.auxdata.picture}}">
-                            <div class="header capitalize" style="text-transform: uppercase;">
-                                {{Seller.auxdata.name}}
-                            </div>
-                            <div class="meta capitalize">
-                                {{Seller.auxdata.tagline}}
-                            </div>
-                            <div class="description">
-                                {{Seller.auxdata.bio}}
-                            </div>
-                        </div>
-                        <div class="extra content">
-                            <div class="ui two buttons">
-                                <div class="ui violet button">View Seller Profile</div>
-                                <div class="ui orange button">Contact Seller</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="ui  stackable externally celled  grid">
                 <div class="row">
                     <div class="twelve wide column">
@@ -46,22 +22,22 @@
 
                             <div class="ui styled fluid accordion">
 
-                                <div class="title active">
+                            <!--     <div class="title active">
                                     <h2>Job Name</h2>
                                 </div>
                                 <div class="content active">
                                     <h3 class="transition visible">I will {{this.title}}</h3>
                                 </div>
-
-                                <div class="title active">
+ -->
+                                <div class="title active capitalize">
                                     <i class="dropdown icon"></i>About this Job
                                 </div>
                                 <div class="content active">
                                     <p class="transition visible">{{{description}}}</p>
                                 </div>
 
-                                <div class="title active">
-                                    <i class="dropdown icon"></i>Additional information that the seller will need from you
+                                <div class="title active capitalize ">
+                                    <i class="dropdown icon "></i>Additional information that the seller will need from you
                                 </div>
                                 <div class="content active">
                                     <p class="transition visible">{{{instructions}}}</p>
@@ -71,7 +47,7 @@
                     </div>
                     <div class="four wide column">
                             <div class="ui segment">
-                                <h3 class="ui center aligned icon header capitalize">
+                                <h3 class="ui center aligned icon header uppercase wordwrap">
                                     <i class="circular info circle icon"></i>
                                     {{highlight}}
                                 </h3>
@@ -85,12 +61,12 @@
                                     <div class="item">
                                         <i class="large refresh middle aligned icon"></i>
                                         <div class=" middle aligned content">
-                                            <a class="header">UNLIMITED REVISIONS</a>
+                                            <a class="header capitalize">UNLIMITED REVISIONS</a>
                                         </div>
                                     </div>
                                     <div class="item">
                                         <a class="fluid ui animated fade green button" href = "/orders/confirm/{{_id}}" tabindex="0">
-                                            <div class="visible content">Order this Job  R{{price}}</div>
+                                            <div class="visible content uppercase ">Order this Job  R{{price}}</div>
                                             <div class="hidden bluetext content">
                                                 R{{price}}
                                             </div>
@@ -102,10 +78,10 @@
                                 <div class=" card">
                                     <div class="content">
                                         <img class="right floated mini ui image" src="{{Seller.auxdata.picture}}">
-                                        <div class="header">
+                                        <div class="header wordwrap capitalize">
                                             {{Seller.auxdata.name}}
                                         </div>
-                                        <div class="meta">
+                                        <div class="meta capitalize wordwrap">
                                             {{Seller.auxdata.tagline}}
                                         </div>
                                         <div class="description">

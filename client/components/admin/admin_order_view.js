@@ -13,30 +13,15 @@ Template.admin_order_view.onCreated(function() {
 
 Template.admin_order_view.onRendered(function() {
 
-	AutoForm.addHooks(null, {
-	    onError: function (name, error, template) {
-	      console.log(name + " error:", error);
-	    },
-	    onSuccess: function(formType, result) {
-	    	console.log(result)
-	    },
-	    before: {  
-		    update: function(doc) {
-		      if (doc.$set.featured)
-		      {
-		      	console.log(doc)
-		      	doc.$set.parentCategory = "";
-		      }
-		      return doc;
-		    }
-		}
-	});
-
 	console.log("Order View Rendered")
 		
 });
 
 Template.admin_order_view.helpers({
+
+	OrdersCollection : function () {
+        return Orders; //Return the Jobs Collection relating to the schema
+    }
 
 });
 

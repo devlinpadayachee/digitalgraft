@@ -4,15 +4,21 @@
             <h2 class="ui header">{{this.name}}</h2>
         </div>
         <div class="ui pointing menu">
-          <a class="active item">
-            Home
+          <a class="item sortbynewest active">
+            Newest
           </a>
-          <a class="item">
-            Messages
+          <a class="item sortbyoldest">
+            Oldest
           </a>
-          <a class="item">
-            Friends
+          <a class="item sortbytitle">
+            Title
           </a>
+          <a class="item sortbypopular">
+            Most Popular
+          </a>
+          <a class="item sortbypurchasedtimes">
+            Purchased Times
+          </a>     
           <div class="right menu">
             <div class="item">
               <div class="ui transparent icon input">
@@ -23,19 +29,28 @@
           </div>
         </div>
         <div class ="jobssection">
-          <div class="ui segment ">
-              <div class="ui link four cards">
-                {{#each Jobs}}
-                  {{> job_card}}
-                {{/each}}
-                {{#if moreResults}}
-                    <div id="showMoreResults" class="text-center" style="margin-left: 25px;">
-                        <span class="loading"><i class="fa fa-spinner fa-pulse" aria-hidden="true"></i></span>
-                    </div>
-                {{/if}}
-                 
-              </div>
-          </div>
+        {{#if Jobs.count}}
+            <div class="ui segment ">
+                <div class="ui link four cards">
+                  {{#each Jobs}}
+                    {{> job_card}}
+                  {{/each}}
+                  {{#if moreResults}}
+                      <div id="showMoreResults" class="text-center" style="margin-left: 25px;">
+                          <span class="loading"><i class="fa fa-spinner fa-pulse" aria-hidden="true"></i></span>
+                      </div>
+                  {{/if}}
+                   
+                </div>
+            </div>
+        {{else}}
+            <div class="ui negative message">
+                <div class="header">
+                    We're sorry, there are no jobs available in this category
+                </div>
+                <p>Check back again soon</p>
+            </div>
+        {{/if}}     
         </div>
     </div>
  </template>

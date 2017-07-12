@@ -14,17 +14,17 @@
         </div>
         <div class="content">
             <div class="ui secondary pointing header">
-                <h2 class = "ui tiny header wordwrap">I will {{title}}</h2>
+                <h2 class = "ui tiny header wordwrap">I will <span class = "lowercase">{{title}}</span></h2>
             </div>
         </div>
         <div class="extra content">
-            <div class="meta">
+            <div class="meta capitalize">
                 <a>By {{ idtoname seller}}</a>
             </div>
         </div>
         <div class="extra content">
-            <span class="ui right floated yellowtext">Created {{formatteddate createdAt}}</span>
-            <span class = "green"><i class="thumbs up icon green"></i>{{positiveLikes}}</span>
+            <span class="ui tiny right floated"><span class = "ui yellow">Created {{formatteddate createdAt}}</span></span>
+            <span class = "ui tiny left floated"><i class="thumbs up icon green"></i>{{positiveLikes}}</span>
         </div>
     </a>
 </template>

@@ -14,13 +14,13 @@ Meteor.startup(function() {
 
 Template.header.onRendered(function() {
 
-
+	$('.login-button').addClass('ui blue button');
 	$('.menu .browse')
 		.popup({
 			inline: true,
 			hoverable: true,
-			position: 'bottom right',
-			lastResort : 'bottom left',
+			position: 'bottom left',
+			lastResort : 'bottom right',
 			delay: {
 				show: 300,
 				hide: 800
@@ -34,8 +34,8 @@ Template.frontpageheader.onRendered(function() {
 		.popup({
 			inline: true,
 			hoverable: true,
-			position: 'bottom right',
-			lastResort : 'bottom left',
+			position: 'bottom left',
+			lastResort : 'bottom right',
 			delay: {
 				show: 300,
 				hide: 800
