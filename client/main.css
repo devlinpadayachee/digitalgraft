@@ -5,7 +5,7 @@ body {
 }
 
 .fixedheight {
-    min-height: 440px;
+    min-height: 100%;
     padding-bottom: 60px;
     box-sizing: border-box;
 }
@@ -26,7 +26,7 @@ body {
     padding: 5em 0em;
     /*   background-image: url(../images/grid-pattern.png); */
     /*background: -webkit-gradient(linear, left bottom, left top, from(rgba(22,24,30,0.2)), to(#2b303b)),url(../images/grid-pattern.png); */
-    /*    background: -webkit-linear-gradient(bottom, rgba(22,24,30,0.2), #2b303b),url(../images/grid-pattern.png); 
+    /*    background: -webkit-linear-gradient(bottom, rgba(22,24,30,0.2), #2b303b),url(../images/grid-pattern.png);
     background: -o-linear-gradient(bottom, rgba(22,24,30,0.2), #2b303b),url(../images/grid-pattern.png);
     background: linear-gradient(to top, rgba(22,24,30,0.2), #2b303b),url(../images/grid-pattern.png); */
 }
@@ -87,6 +87,10 @@ body {
 
 .ui.menu.regularmenu {
     margin: 0rem 0rem 1rem 0rem!important;
+}
+
+.menusubs:hover {
+    color: #1a2b3c!important;
 }
 
 .hidden {
@@ -251,7 +255,7 @@ body {
     cursor: pointer;
     color:#fff!important;
     font-size: inherit!important;
-    text-decoration: none!important; 
+    text-decoration: none!important;
     text-transform: capitalize!important;
 }
 
@@ -281,7 +285,7 @@ body {
 .job-card-image {
     min-height: 258px;
     max-height: 258px;
-   
+
 }
 
 .messagescroller {

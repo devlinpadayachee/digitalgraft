@@ -32,7 +32,7 @@
                                     <a href="/sub_categories/{{_id}}"><h4 class="ui header">{{name}}</h4></a>
                                     <div class="ui link list">
                                         {{#each SubCategories}}
-                                            <a class="item" href="/category_jobs/{{_id}}">{{name}}</a>
+                                            <a class="item menusubs" href="/category_jobs/{{_id}}">{{name}}</a>
                                         {{/each}}
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@
                                     <a href="/sub_categories/{{_id}}"><h4 class="ui header">{{name}}</h4></a>
                                     <div class="ui link list">
                                         {{#each SubCategories}}
-                                            <a class="item" href="/category_jobs/{{_id}}">{{name}}</a>
+                                            <a class="item menusubs" href="/category_jobs/{{_id}}">{{name}}</a>
                                         {{/each}}
                                     </div>
                                 </div>
@@ -99,7 +99,7 @@
                         <h1 class="ui large header whitetext welcome-text">{{Language.lang.welcome_text}}</h1>
                     </div>
                 </div>
-           <!--          <div class="ui fluid vertical huge steps">
+                    <!-- <div class="ui fluid vertical huge steps">
                       <div class="step">
                         <div class="content">
                           <div class="orangetext title">{{Language.lang.welcome_1st_subtext}}</div>
@@ -111,24 +111,13 @@
                         </div>
                       </div>
                     </div> -->
-                   
-                <div class="column">
-                    <h3 class="ui inverted header">
-                       {{Language.lang.welcome_1st_subtext}}
-                    </h3>
-                </div>
-                <div class="column">
-                    <h3 class="ui inverted header">
-                        {{Language.lang.welcome_2nd_subtext}}
-                    </h3>
-                </div>
-              
-<!--                     <div class="ui lowopacity inverted raised  segment">
+
+                    <div class="ui lowopacity inverted raised  segment">
                        <h2 class="ui  header centered orange welcome-sub-text">{{Language.lang.welcome_1st_subtext}}</h2>
                     </div>
                     <div class="ui lowopacity inverted raised segment">
                        <h2 class="ui  header centered violettext welcome-sub-text">{{Language.lang.welcome_2nd_subtext}}</h2>
-                    </div>    -->           
+                    </div>
             </div>
         </div>
     </div>
@@ -183,4 +172,3 @@
         </div>
     </div>
 </template>
-
